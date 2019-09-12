@@ -48,8 +48,12 @@ public class JobTriggerPoolHelper {
 
 
     // job timeout count
-    private volatile long minTim = System.currentTimeMillis()/60000;     // ms > min
+    private volatile long minTim;     // ms > min
     private volatile ConcurrentMap<Integer, AtomicInteger> jobTimeoutCountMap = new ConcurrentHashMap<>();
+
+    public JobTriggerPoolHelper() {
+        minTim = System.currentTimeMillis()/60000;
+    }
 
 
     /**
